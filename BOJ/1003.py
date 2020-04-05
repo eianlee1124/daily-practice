@@ -1,5 +1,5 @@
-from inputs.defines import *
-sys.stdin = open(init('1003'))
+from inputs import *
+load(sys, '1003')
 
 def fib(n):
     cache = (
@@ -7,7 +7,6 @@ def fib(n):
         (0, 1),
         (1, 1)
     )
-    
     if n < 3:
         return cache[n]
     
