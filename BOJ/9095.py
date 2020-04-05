@@ -1,5 +1,5 @@
 from inputs import *
-sys.stdin = init('9095')
+load(sys, '9095')
 
 def add(n):
     if n <= 3:
