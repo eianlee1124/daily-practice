@@ -2,17 +2,14 @@ import sys
 from collections import deque
 
 class Queue:
-    def __init__(self):
-        self.data = deque()
+    def __init__(self, queue):
+        self.data = queue()
     
     def push(self, item):
         self.data.append(item)
     
     def pop(self):
-        try:
-            return self.data.popleft()
-        except:
-            return -1
+        return self.data.popleft() if self.data else -1
 
     def size(self):
         return len(self.data)
@@ -21,32 +18,30 @@ class Queue:
         return 1 if not self.data else 0
         
     def front(self):
-        try:
-            return self.data[0]
-        except:
-            return -1
+        return self.data[0] if self.data else -1
+    
     def back(self):
-        try:
-            return self.data[-1]
-        except:
-            return -1
+        return self.data[-1] if self.data else -1
         
-queue = Queue()
-n = int(sys.stdin.readline())
+queue = Queue(deque)
+read = sys.stdin.readline
+write = sys.stdout.write
+
+n = int(read())
 for _ in range(n):
-    cmd = sys.stdin.readline()
+    cmd = read()
     cmd = cmd.strip()
     cmd = cmd.split(' ')
 
     if cmd[0]=='push':
         queue.push(cmd[1])
     elif cmd[0]=='pop':
-        sys.stdout.write(str(queue.pop()) + '\n')
+        write(str(queue.pop()) + '\n')
     elif cmd[0]=='size':
-        sys.stdout.write(str(queue.size()) + '\n')
+        write(str(queue.size()) + '\n')
     elif cmd[0]=='empty':
-        sys.stdout.write(str(queue.empty()) + '\n')
+        write(str(queue.empty()) + '\n')
     elif cmd[0]=='front':
-        sys.stdout.write(str(queue.front()) + '\n')
+        write(str(queue.front()) + '\n')
     elif cmd[0]=='back':
-        sys.stdout.write(str(queue.back()) + '\n')
+        write(str(queue.back()) + '\n')
