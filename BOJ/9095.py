@@ -1,5 +1,5 @@
 from inputs import *
-load(sys, '9095')
+load('9095')
 
 def add(n):
     if n <= 3:
