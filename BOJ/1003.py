@@ -1,5 +1,5 @@
 from inputs import *
-load(sys, '1003')
+load('1003')
 
 def fib(n):
     cache = (
